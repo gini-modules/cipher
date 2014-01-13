@@ -1,0 +1,9 @@
+{
+    "shortname": "cipher",
+    "name": "Cipher",
+    "description": "Cipher Module",
+    "version": "0.0.1",
+    "dependencies": {
+        "system": ">=0.2.0"
+    }
+}
