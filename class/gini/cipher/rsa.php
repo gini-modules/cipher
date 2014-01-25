@@ -11,7 +11,7 @@ namespace Gini\Cipher {
             list($proto, $name) = explode('://', $key, 2);
             if ($name && $proto == 'data') {
                 // is a key file 
-                $file = \Gini\Core::phar_file_exists(DATA_DIR, $name);
+                $file = \Gini\Core::locateFile('data/' . $name);
                 if ($file) {
                     $content = file_get_contents($file);
                     if (false === strpos($content, 'PRIVATE KEY')) {
@@ -82,7 +82,7 @@ namespace Gini\Cipher {
             return !!$verified;
         }
 
-        function public_key() {
+        function publicKey() {
             if ($this->_private_key) {
                 return openssl_pkey_get_details($this->_private_key)['key'];
             }
